@@ -1,0 +1,34 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    border: 1px solid black;
+    padding: 20px;
+    background-color: lightcoral;
+  }
+  select {
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+  }
+  img {
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  #buttonDiv {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(54, 61, 194);
+    color: white;
+    cursor: pointer;
+  }
+  
