@@ -16,7 +16,7 @@ export default function App() {
       id: 2,
       name: "ivysaur",
       description:
-        "There is a bud on this PokÃ©mon's back. To support its weight, Ivysaur's legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it's a sign that the bud will bloom into a large flower soon.",
+        "There is a bud on this PokÃ©mon's back.it's a sign that the bud will bloom into a large flower soon.",
       image:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png",
     },
@@ -152,12 +152,14 @@ export default function App() {
   const [filteredPokemon, setFilteredPokemon] = useState(pokemons);
   const [pageNumber, setPageNumber] = useState(1);
   const [perPagePokemon] = useState(1);
+  const [selectedPokemon , setSelectedPokemon] = useState("")
 
   useEffect(() => {
     let startIndex = (pageNumber - 1) * perPagePokemon;
     let endIndex = startIndex + perPagePokemon;
     let navigatedPoke = [...pokemons].slice(startIndex, endIndex);
     setFilteredPokemon(navigatedPoke);
+    setSelectedPokemon(navigatedPoke[0]?.name || "");
   }, [pageNumber]);
 
   function Prev() {
@@ -187,7 +189,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <select onChange={handleSelect}>
+      <select onChange={handleSelect} value={selectedPokemon}>
         <option value="">Pokemons</option>
         {pokemons.map((pokemon) => {
           return (
@@ -207,11 +209,12 @@ export default function App() {
             </div>
           );
         })}
-      </div>
-      <div id="buttonDiv">
+        <div id="buttonDiv">
         <button onClick={Prev}>Previous</button>
         <button onClick={Next}>Next</button>
       </div>
+      </div>
+      
     </div>
   );
 }
